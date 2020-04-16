@@ -1,5 +1,5 @@
 const express = require('express')
-
+const port = process.env.PORT || 3000
 const { db } = require('./db')
 const taskRoute = require('./routes/task')
 
@@ -14,7 +14,7 @@ app.use('/tasks', taskRoute)
 
 db.sync({force:true})
   .then(() => {
-    app.listen(6543)
+    app.listen(3000)
   })
   .catch((err) => {
     console.error(err)
