@@ -14,7 +14,7 @@ app.use('/tasks', taskRoute)
 
 db.sync()
   .then(() => {
-    app.listen(3000)
+    app.listen(port)
   })
   .catch((err) => {
     console.error(err)
