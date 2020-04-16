@@ -12,7 +12,7 @@ app.use(express.json())
 
 app.use('/tasks', taskRoute)
 
-db.sync({force:true})
+db.sync()
   .then(() => {
     app.listen(3000)
   })
