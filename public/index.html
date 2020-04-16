@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task and Notes Manager</title>
+   <link rel="stylesheet" href="style.css">
+    <script async defer src="onload.js"></script>
+    <script async defer src="taskService.js"></script>
+    <script async defer src="notesService.js"></script>
+    <script async defer src="sorting.js"></script>    
+</head>
+<body>
+    <body>
+     <h1 style="color:rgb(226, 175, 34);font-size: 55px;text-align: center;">Task Manager</h1>
+      <div id="addTask">
+        <br>
+        <div id="taskForm">
+            <h2 align="center">ADD NEW TASK</h2>
+            <form action="javascript:;" onsubmit="addTask(this)">
+                Title: <input type="text" id="title" placeholder="Enter title" required>
+                <br><br>
+                Description: <input type="text" id="description" placeholder="Enter description">
+                <br><br>
+                Due Date: <input id="tomorrow" type="date" required>
+                <br><br>
+                Priority: <select id="priority">
+                    <option>Low</option>
+                    <option selected>Medium</option>
+                    <option>High</option>
+                </select>
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+          </div>
+        <br>
+      </div>
+        
+        <div class="upper" align="centre">
+          <h1 align="center">Tasks List</h1>
+            <div class="container">
+                <table id="data">
+                <thead>
+                  <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col" onclick="sortTable(2)" style="cursor: pointer;">Due Date</th>
+                    <th scope="col" onclick="sortTable(3)" style="cursor: pointer;">Status</th>
+                    <th scope="col" onclick="sortTable(4)" style="cursor: pointer;">Priority</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">Edit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+        
+            </div>
+          </div>
+          <div id="id01" class="w3-modal">
+            <div class="w3-modal-content w3-animate-zoom w3-card-4">
+              <header class="w3-container w3-teal"> 
+                <span onclick="document.getElementById('id01').style.display='none'" 
+                class="w3-button w3-display-topright">&times;</span>
+                <h2 id="modalHeader"></h2>
+              </header>
+              <div class="w3-container">
+                <br>
+                <p id="modalContent"></p>
+                <input type="text" id="noteText" placeholder="Enter new note here...">
+                <br> <input type="button" id="addNotes" onclick="addNotes()" value="Add notes">
+              </div>            
+            </div>
+          </div>
+        </div>
+        <div id="id02" class="w3-modal">
+          <div class="w3-modal-content w3-animate-zoom w3-card-4">
+            <header class="w3-container w3-teal"> 
+              <span onclick="document.getElementById('id02').style.display='none'" 
+              class="w3-button w3-display-topright">&times;</span>
+              <h2 id="modalHeader2"></h2>
+            </header>
+            <div class="w3-container">
+              <br>
+              <form action="javascript:;" onsubmit="updateTask(this)">
+                Due Date: <input type="date" required id="editDueDate">
+                <br><br>
+                Priority: <select id="editPriority">
+                  <option>Low</option>
+                  <option selected>Medium</option>
+                  <option>High</option>
+                </select>
+                <br><br>
+                <input type="checkbox" id="editStatus"> Check if task is completed
+                <br><br>
+              </div>
+              <footer class="w3-container w3-teal">
+                <input type="submit" value="Update">
+              </footer>
+          </form>
+          </div>
+        </div>
+      </div>
+
+    </body>
+</body>
+</html>
